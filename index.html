@@ -15,7 +15,6 @@ body {
   margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
   background: #f4f6fb;
-  color: #333;
 }
 
 /* NAVBAR */
@@ -29,29 +28,32 @@ body {
   color: #fff;
   margin: 0 15px;
   text-decoration: none;
-  font-size: 14px;
-}
-
-.navbar a:hover {
-  text-decoration: underline;
 }
 
 /* HERO */
 .hero {
-  background: #1f2a6b;
+  position: relative;
   color: #fff;
   text-align: center;
-  padding: 40px 20px;
 }
 
-.hero h1 {
+.hero img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  filter: brightness(0.5);
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-text h1 {
   margin: 0;
   font-size: 28px;
-}
-
-.hero p {
-  margin-top: 10px;
-  font-size: 15px;
 }
 
 /* SECTION */
@@ -61,37 +63,36 @@ body {
   padding: 25px;
 }
 
-/* CARDS */
+/* CARD */
 .card {
   background: #fff;
   padding: 20px;
   border-radius: 14px;
   margin-bottom: 20px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  border-left: 5px solid #2d3dbf;
 }
 
-.card h3 {
-  margin: 0 0 10px;
-  color: #1f2a6b;
+/* IMAGE */
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
-.card p {
-  font-size: 14px;
+/* CAROUSEL */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
-.btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 16px;
-  background: #2d3dbf;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
+.carousel img {
+  width: 100%;
+  display: none;
 }
 
-.btn:hover {
-  background: #1f2a6b;
+.carousel img.active {
+  display: block;
 }
 
 /* FOOTER */
@@ -112,42 +113,60 @@ body {
   <a href="#">Home</a>
   <a href="#">Tools</a>
   <a href="#">About</a>
-  <a href="#">Contact</a>
 </div>
 
 <!-- HERO -->
 <div class="hero">
-  <h1>Invincibles Co</h1>
-  <p>Smart Tax, Compliance & Advisory Solutions for Professionals & Businesses</p>
+  <img src="images/hero.jpg">
+  <div class="hero-text">
+    <h1>Invincibles Co</h1>
+    <p>Smart Tax & Compliance Solutions</p>
+  </div>
 </div>
 
-<!-- TOOLS SECTION -->
+<!-- ABOUT -->
 <div class="section">
 
   <div class="card">
-    <h3>📊 TDS Comparison Tool</h3>
-    <p>Compare TDS provisions under old and new Income Tax Acts.</p>
-    <a href="#" class="btn">Explore</a>
+    <img src="images/about.jpg">
+    <h2>About Us</h2>
+    <p>
+      Invincibles Co simplifies taxation and compliance for professionals and businesses through structured tools and insights.
+    </p>
   </div>
 
+  <!-- CAROUSEL -->
   <div class="card">
-    <h3>📄 Income Tax Forms Comparison</h3>
-    <p>Understand changes in forms, sections and rules.</p>
-    <a href="#" class="btn">Explore</a>
-  </div>
+    <h3>Our Work & Insights</h3>
 
-  <div class="card">
-    <h3>🏢 LLP Compliance Tool</h3>
-    <p>Track LLP forms, due dates and applicable rules.</p>
-    <a href="#" class="btn">Explore</a>
+    <div class="carousel">
+      <img src="images/tax1.jpg" class="active">
+      <img src="images/tax2.jpg">
+      <img src="images/tax3.jpg">
+    </div>
+
   </div>
 
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
-  © Invincibles Co | All Rights Reserved
+  © Invincibles Co
 </div>
+
+<script>
+
+/* SIMPLE CAROUSEL */
+let index = 0;
+const images = document.querySelectorAll(".carousel img");
+
+setInterval(() => {
+  images[index].classList.remove("active");
+  index = (index + 1) % images.length;
+  images[index].classList.add("active");
+}, 3000);
+
+</script>
 
 </body>
 </html>
