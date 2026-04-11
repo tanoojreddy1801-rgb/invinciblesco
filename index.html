@@ -11,7 +11,7 @@
 /* GLOBAL */
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Trebuchet MS", sans-serif;
   background: #f7f9fc;
   color: #2c2c2c;
   scroll-behavior: smooth;
@@ -21,139 +21,165 @@ body {
 .navbar {
   position: sticky;
   top: 0;
-  background: rgba(31,42,107,0.95);
-  backdrop-filter: blur(8px);
-  padding: 15px 30px;
+  background: #1f2a6b;
+  padding: 15px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.navbar .logo {
+.logo {
   color: #fff;
-  font-weight: 600;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .navbar a {
   color: #fff;
   text-decoration: none;
-  margin-left: 20px;
+  margin-left: 25px;
   font-size: 14px;
+  position: relative;
+}
+
+/* NAV HOVER UNDERLINE EFFECT */
+.navbar a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  left: 0;
+  bottom: -4px;
+  transition: 0.3s;
+}
+
+.navbar a:hover::after {
+  width: 100%;
 }
 
 /* HERO */
 .hero {
-  height: 80vh;
-  position: relative;
-}
-
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.4);
-}
-
-.hero-text {
-  position: absolute;
-  top: 50%;
-  left: 10%;
-  transform: translateY(-50%);
+  background: linear-gradient(135deg, #1f2a6b, #2d3dbf);
   color: white;
-  max-width: 500px;
+  padding: 100px 20px;
 }
 
-.hero-text h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
+.hero-content {
+  max-width: 900px;
+  margin: auto;
 }
 
-.hero-text p {
-  font-size: 16px;
-  line-height: 1.5;
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 17px;
+  line-height: 1.6;
+  opacity: 0.9;
 }
 
 /* SECTION */
 .section {
   max-width: 1100px;
   margin: auto;
-  padding: 60px 20px;
+  padding: 70px 20px;
+}
+
+/* ALTERNATE BACKGROUND */
+.section.alt {
+  background: #eef1ff;
 }
 
 /* TITLE */
 .section h2 {
-  font-size: 28px;
   color: #1f2a6b;
   margin-bottom: 20px;
+  font-size: 28px;
 }
 
 /* CARD */
 .card {
   background: white;
-  padding: 25px;
-  border-radius: 16px;
+  padding: 30px;
+  border-radius: 14px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-  margin-bottom: 25px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 /* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 25px;
 }
 
 /* SERVICE BOX */
 .service {
-  background: linear-gradient(135deg,#eef1ff,#ffffff);
-  padding: 20px;
+  background: white;
+  padding: 25px;
   border-radius: 12px;
-  transition: 0.3s;
+  border: 1px solid #e3e6f0;
+  transition: all 0.3s ease;
 }
 
+/* HOVER EFFECT */
 .service:hover {
   transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+  border-color: #2d3dbf;
 }
 
-/* CAROUSEL */
-.carousel {
-  position: relative;
-  height: 300px;
-  overflow: hidden;
-  border-radius: 14px;
+/* BUTTON */
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: #2d3dbf;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
-.carousel img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-.carousel img.active {
-  opacity: 1;
+/* BUTTON HOVER */
+.btn:hover {
+  background: #1f2a6b;
+  transform: scale(1.05);
 }
 
 /* CTA */
 .cta {
-  background: #1f2a6b;
+  background: linear-gradient(135deg, #1f2a6b, #2d3dbf);
   color: white;
   text-align: center;
-  padding: 40px;
-  border-radius: 16px;
+  padding: 50px;
+  border-radius: 14px;
 }
 
 .cta button {
-  padding: 12px 20px;
-  background: #2d3dbf;
+  margin-top: 20px;
+  padding: 14px 22px;
+  background: white;
+  color: #1f2a6b;
   border: none;
-  color: white;
   border-radius: 8px;
-  margin-top: 15px;
+  font-weight: bold;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.cta button:hover {
+  background: #eef1ff;
+  transform: scale(1.05);
 }
 
 /* FOOTER */
@@ -161,7 +187,8 @@ body {
   background: #1f2a6b;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 25px;
+  font-size: 14px;
 }
 
 </style>
@@ -181,11 +208,10 @@ body {
 
 <!-- HERO -->
 <div class="hero">
-  <img src="images/hero.jpg">
-  <div class="hero-text">
+  <div class="hero-content">
     <h1>Clarity in Tax. Confidence in Compliance.</h1>
     <p>
-      A modern platform empowering professionals and businesses with structured tax insights, 
+      A modern platform empowering professionals and businesses with structured tax insights,
       compliance tools and legal clarity.
     </p>
   </div>
@@ -197,34 +223,36 @@ body {
   <div class="card">
     <p>
       Invincibles Co is a forward-looking tax and compliance platform built to simplify complex
-      legal frameworks. Our focus is to bridge the gap between statutory provisions and
-      practical implementation.
+      legal frameworks and enhance practical understanding.
     </p>
     <p>
-      With structured datasets, intelligent tools, and professional insights, we enable
-      better decision-making for professionals and businesses alike.
+      Our approach focuses on structured data, intelligent tools, and real-world applicability
+      for professionals and businesses.
     </p>
   </div>
 </div>
 
 <!-- SERVICES -->
-<div class="section" id="services">
+<div class="section alt" id="services">
   <h2>What We Offer</h2>
   <div class="grid">
-    <div class="service">📊 TDS Analysis & Comparison</div>
-    <div class="service">📄 Income Tax Forms Intelligence</div>
-    <div class="service">🏢 LLP Compliance Tracking</div>
-    <div class="service">⚖️ Advisory & Interpretation</div>
-  </div>
-</div>
 
-<!-- CAROUSEL -->
-<div class="section">
-  <h2>Insights & Updates</h2>
-  <div class="carousel">
-    <img src="images/tax1.jpg" class="active">
-    <img src="images/tax2.jpg">
-    <img src="images/tax3.jpg">
+    <div class="service">
+      TDS Analysis & Comparison
+    </div>
+
+    <div class="service">
+      Income Tax Forms Intelligence
+    </div>
+
+    <div class="service">
+      LLP Compliance Tracking
+    </div>
+
+    <div class="service">
+      Advisory & Interpretation
+    </div>
+
   </div>
 </div>
 
@@ -232,9 +260,22 @@ body {
 <div class="section" id="tools">
   <h2>Explore Tools</h2>
   <div class="grid">
-    <div class="service">TDS Comparison Tool</div>
-    <div class="service">Income Tax Forms Tool</div>
-    <div class="service">LLP Compliance Tool</div>
+
+    <div class="service">
+      TDS Comparison Tool<br>
+      <a href="#" class="btn">Open</a>
+    </div>
+
+    <div class="service">
+      Income Tax Forms Tool<br>
+      <a href="#" class="btn">Open</a>
+    </div>
+
+    <div class="service">
+      LLP Compliance Tool<br>
+      <a href="#" class="btn">Open</a>
+    </div>
+
   </div>
 </div>
 
@@ -249,29 +290,8 @@ body {
 
 <!-- FOOTER -->
 <div class="footer">
-  © Invincibles Co | Built for Professionals
+  Invincibles Co | Built for Professionals
 </div>
 
-<script>
-
-window.onload = function() {
-
-  const slides = document.querySelectorAll(".carousel img");
-
-  let index = 0;
-
-  if(slides.length === 0) return;
-
-  slides[0].classList.add("active");
-
-  setInterval(() => {
-    slides[index].classList.remove("active");
-    index = (index + 1) % slides.length;
-    slides[index].classList.add("active");
-  }, 3000);
-
-};
-
-</script>
 </body>
 </html>
